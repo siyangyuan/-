@@ -1,0 +1,45 @@
+<html>
+    <head><title>margin</title></head>
+    <style>
+    div{
+        margin: 20px;
+        height: 200px;
+        background: darkcyan;
+    }
+    /* 伪类的写法 */
+    div:first-child,div:last-child {
+        border: 8px solid sandybrown;
+    }
+    /* .first-letter {
+        color: brown;
+        font-size: 50px;
+    } */
+    /* 伪元素的写法 */
+    div::first-letter {
+        color: sandybrown;
+        font-size: 50px;
+    }
+    p::selection {
+        color: chocolate;
+    }
+    p::after {
+        content: '有道是夜不闭户 又岂能朝朝暮暮'
+    }
+    </style>
+    <body>
+        <div>
+            胸前纹奈良的鹿 然后考虑去哪里小住
+        </div>
+        <div>
+            那是传说 黄昏中迟来归客
+        </div>
+        <div>
+            <p>
+                那是修行千年的树 那是蜻蜓点水的湖
+            </p>
+        </div>
+        <div>
+            没想逃 是心甘情愿 执念的 放荡的 她拿命抵偿
+        </div>
+    </body>
+</html>
