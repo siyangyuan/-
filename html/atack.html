@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .c div {
+        margin-top: 10px;
+        height: 20px;
+        background: aquamarine;
+    }
+    .c {
+        /* height: 300px; */
+    }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+    <input id="input" />
+    <input type="button" value="提交" id="button"/>
+    <div class="c" style="background: burlywood;top: 0px;">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        var content = document.getElementById('content')
+        var input = document.getElementById('input')
+        var button = document.getElementById('button')
+        button.onclick = () => {
+            content.innerHTML = input.value;
+        }
+        //<h1>哈哈，你的页面结构被我破坏了</h1>
+        //<img src='x' onerror='alert(1)'> 
+    </script>
+</body>
+</html>
