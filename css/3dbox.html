@@ -94,7 +94,7 @@
             background: sandybrown;
             /* 颜色 色变到达的位置 */
             background-image: linear-gradient(to left,transparent 50%,#655 0);
-            animation: pieRotate 30s ease-in-out infinite 0s;
+            /* animation: pieRotate 30s ease-in-out infinite 0s; */
         }
         .pie::before {
             content: '';
@@ -114,6 +114,22 @@
             background-color: aqua;
             border-radius: 0 100% 100% 0/40%;
         }
+        .zx div {
+            width: 90%;
+            height: 90%;
+            border: 10px solid lightblue;
+            animation: pieRotate 30s ease-in-out infinite 0s;
+        }
+        .zx0 {
+            transform: translateZ(200px);
+            transform: rotateX(.3turn)
+        }
+        .zx1 {
+            transform: rotateY(.3turn);
+            /* animation: pieRotate 20s ease-in-out infinite 0s; */
+            /* border: 10px solid olive; */
+            /* transform: translateZ(50px) */
+        }
     </style>
 </head>
 <body>
@@ -127,7 +143,60 @@
         <li style="border-left:20px solid darkseagreen;border-right:20px solid darkseagreen;">qq</li>
         <li style="border-left:20px solid darkseagreen;border-right:20px solid darkseagreen;border-top:15px solid steelblue">qq</li>
     </ul>
-    <div class="pie"></div>
+    <input placeholder="含量" id="contain"/>
+    <input placeholder="总量" id="total"/>
+    <input type="button" id="button" value="改变"/>
+    <div class="pie" id="pie"></div>
     <div class="halfCircle"></div>
+    <div class="zx" style="-webkit-transform-style: preserve-3d;height:200px;width:200px;">
+        <div>
+            <div class="zx1">
+                <div class='zx0'></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var contain = document.getElementById('contain')
+        var total = document.getElementById('total')
+        var button = document.getElementById('button')
+        var pie = document.getElementById('pie')
+        button.onclick = () => {
+            
+            var v1 = Number(contain.value) || 66;
+            var v2 = Number(total.value) || 100;
+            var style = document.styleSheets
+            var index = 0
+            console.log(v1 + '  ' + v2 +
+             '   ' +v1/v2)
+            console.log(style[0].cssRules[10])
+            var angle = v1/v2;
+            if(angle > 1){
+                alert('请勿输入不合规的数据')
+                return
+            }
+            for(let i of style[0].cssRules){
+                //console.log(i)
+                //i = {}
+                if(i.selectorText && i.selectorText == '.pie::before'){
+                    // index = i.
+                    // console.log(index)
+                    console.log(i.style.transform)
+                    if(angle>0.5){
+                        i.style.backgroundColor = '#655'
+                        angle = 0.5 - (angle - 0.5)
+                    }else{
+                        i.style.backgroundColor = 'inherit'
+                        angle = 0.5-angle
+                    }
+                    i.style.transform = "rotate("+angle+"turn)"
+                    // 无法通过cssText
+                    // i.cssText = ".pie::before { content: ''; display: block; margin-left: 50%; height: 100%; background-color: inherit; border-radius: 0px 50% 100% 50% 100% 50% 0px 50%;"+
+                    // "transform: ri otate("+ v1/v2 +"turn); transform-origin: left center; }";
+                    // i.cssText = ''
+                    console.log(i.style.transform)
+                }
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .bg {
+        margin: 5% auto;
+        width: 500px;
+        height: 600px;
+        background: indianred;
+    }
+    .bg div {
+        position: absolute;
+    }
+    .head {
+        width: 150px;
+        height: 150px;
+        border-radius: 50% 50% 80% 80%;
+        margin-left: 175px;
+        margin-top: 50px;
+        background: peru;
+    }
+    .ear {
+        height: 30px;
+        width: 18px;
+        background-color: blanchedalmond;
+        border-radius: 0 200% 100% 0/56%;
+        transform: rotate(0.5turn);
+        margin-top: 40px;
+        margin-left: -5px;
+    }
+    .ear2 {
+        height: 30px;
+        width: 18px;
+        background-color: blanchedalmond;
+        border-radius: 0 100% 200% 0/56%;
+        margin-top: 40px;
+        margin-left: 140px;
+    }
+    .face {
+        width: 80px;
+        height: 90px;
+        margin-top: 30px;
+        margin-left: 35px;
+        border-radius: 50% 50% 60% 60%;
+        /* 由于前面定义了div的颜色 这里失效 */
+        background: khaki;
+        
+    }
+    /* .face::before {
+        content: '';
+        display: block;
+        margin-left: 50%;
+        height: 100%;
+        background-color: inherit;
+        border-radius: 0 100% 100% 0/50%;
+        transform-origin: left;
+        transform: rotate(0.25turn);
+    } */
+    .eye {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background: black;
+        border: white solid 7px;
+        margin-left: 13px;
+        margin-top: 15px;
+    }
+    .eye2 {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background: black;
+        border: white solid 7px;
+        margin-left: 42px;
+        margin-top: 15px;
+    }
+    .mouth {
+        width: 18px;
+        height: 46px;
+        border-radius: 0 100% 100% 0/50%;
+        background-color: rgb(231, 186, 118);
+        transform: rotate(0.75turn);
+        margin-left: 29px;
+        margin-top: 30px;
+        border: 1px solid saddlebrown;
+    }
+    .mouth2 {
+        width: 12px;
+        height: 35px;
+        border-radius: 0 100% 100% 0/50%;
+        background-color: rgb(231, 186, 118);
+        margin-left: 32px;
+        margin-top: 50px;
+        transform: rotate(.25turn);
+        border: 1px solid saddlebrown;
+        animation: waveMouth 4s infinite 0s;
+    }
+    .body {
+        width: 180px;
+        height: 220px;
+        border-radius: 80% 80% 60% 60%;
+        margin-left: 160px;
+        margin-top: 200px;
+        background: peru;
+    }
+    .stom {
+        width: 90px;
+        height: 120px;
+        background-color: rgb(238, 237, 189);
+        margin-top: 60px;
+        margin-left: 45px;
+        border-radius: 85% 85% 60% 60%;
+    }
+    .hand {
+        width: 180px;
+        height: 20px;
+        background-color: peru;
+        border-radius: 20% 20% 20% 20%;
+        margin-top: 40px;
+        margin-left: -130px;
+        transform: rotate(0.1turn);
+        transform-origin: right;
+        border: 2px double rgb(160, 82, 26);
+    }
+    .hand2 {
+        width: 180px;
+        height: 20px;
+        background-color: peru;
+        border-radius: 20% 20% 20% 20%;
+        margin-top: 40px;
+        margin-left: 130px;
+        transform: rotate(-0.07turn);
+        transform-origin: left;
+        border: 2px double rgb(160, 82, 26);
+    }
+    .leg {
+        width: 130px;
+        height: 30px;
+        background-color: peru;
+        border-radius: 30%;
+        border: 2px double rgb(160, 82, 26);
+        margin-top: 260px;
+        margin-left: -50px;
+        transform-origin: left;
+        transform: rotate(-0.1turn);
+    }
+    .leg::before {
+        content: '';
+        display: block;
+        width: 110px;
+        height: 25px;
+        border: 2px double rgb(160, 82, 26);
+        background-color: inherit;
+        border-radius: 30%;
+        transform-origin: left;
+        transform: rotate(0.3turn);
+        animation: waveLeg 7s infinite 0s;
+    }
+    .leg2 {
+        width: 130px;
+        height: 30px;
+        background-color: peru;
+        border-radius: 30%;
+        border: 2px double rgb(160, 82, 26);
+        margin-top: 300px;
+        margin-left: 80px;
+        transform-origin: left;
+        transform: rotate(-0.2turn);
+    }
+    .leg2::before {
+        content: '';
+        display: block;
+        width: 110px;
+        height: 25px;
+        border: 2px double rgb(160, 82, 26);
+        background-color: inherit;
+        border-radius: 30%;
+        transform-origin: left;
+        transform: rotate(0.3turn);
+        animation: waveLeg 8s infinite 0s;
+    }
+    .tail {
+        width: 150px;
+        height: 18px;
+        margin-top: 380px;
+        margin-left: 270px;
+        border-bottom: 2px double rgb(160, 82, 26);
+        border-top: 2px double rgb(160, 82, 26);
+        background-color: peru;
+        border-radius: 30%;
+        transform-origin: left;
+        transform: rotate(-0.15turn);
+        animation: waveTail 5s infinite 0s;
+    }
+    .tail::before {
+        content: '';
+        display: block;
+        width: 110px;
+        height: 18px;
+        border-bottom: 2px double rgb(160, 82, 26);
+        border-top: 2px double rgb(160, 82, 26);
+        border-right: 2px double rgb(160, 82, 26);
+        background-color: inherit;
+        border-radius: 30% 50% 50% 30%;
+        transform-origin: left;
+        transform: rotate(-0.07turn);
+        margin-left: 100%;
+    }
+    @-webkit-keyframes waveTail {
+        0% {
+            -webkit-transform: rotate(-0.15turn)
+        }
+        50% {
+            -webkit-transform: rotate(0.1turn)
+        }
+        100% {
+            -webkit-transform: rotateY(-0.15tuen);
+        }
+    }
+    @-webkit-keyframes waveLeg {
+        0% {
+            -webkit-transform: rotate(0.3turn)
+        }
+        50% {
+            -webkit-transform: rotate(0.06turn)
+        }
+        100% {
+            -webkit-transform: rotateY(0.3tuen);
+        }
+    }
+    @-webkit-keyframes waveMouth {
+        0% {
+            -webkit-transform: translateY(0px);
+            -webkit-transform: rotate(.25turn);
+        }
+        25% {
+            -webkit-transform: translateY(100px);
+            -webkit-transform: rotate(.27turn);
+        }
+        75% {
+            -webkit-transform: translateY(100px);
+            -webkit-transform: rotate(.23turn);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+            -webkit-transform: rotate(.25turn);
+        }
+    }
+</style>
+<body>
+    <div class="bg">
+        <div class="head">
+            <div class="ear"></div>
+            <div class="ear2"></div>
+            <div class="face">
+                <div class="eye"></div>
+                <div class="eye2"></div>
+                <div class="mouth"></div>
+                <div class="mouth2"></div>
+            </div>
+        </div>
+        <div class="tail"></div>
+        <div class="body">
+            <div class="stom"></div>
+            <div class="hand"></div>
+            <div class="hand2"></div>
+            <div class="leg"></div>
+            <div class="leg2"></div>
+        </div>
+        
+    </div>
+</body>
+</html>
